@@ -47,12 +47,18 @@ RUN set -eux; \
 VOLUME /var/run/php
 
 COPY docker/php/php.ini /usr/local/etc/php/conf.d/extra-php-config.ini
-
-COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+COPY docker/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 RUN mkdir -p /var/cache/app/
 
-WORKDIR /var/www/app/public
+RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/cache/app
 
 RUN setfacl -dR -m u:www-data:rwX -m u:$(whoami):rwX /var/cache/app
 RUN setfacl -R -m u:www-data:rwX -m u:$(whoami):rwX /var/cache/app
+
+USER www-data
+
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+
+WORKDIR /var/www/app
