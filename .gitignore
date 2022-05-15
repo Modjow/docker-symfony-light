@@ -1,0 +1,37 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/src/.preload.php
+/var/
+###< symfony/framework-bundle ###
+
+###> composer ###
+composer.phar
+/vendor/
+###< composer ###
+
+###> vscode ###
+.vscode/
+###< vscode ###
+
+###> PhpStorm ###
+.idea/
+###< PhpStorm ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> Mac ###
+*.DS_Store
+###< Mac ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
