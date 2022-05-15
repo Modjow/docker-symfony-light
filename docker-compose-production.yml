@@ -1,0 +1,6 @@
+version: '3.9'
+
+services:
+  adminer:
+    restart: "no"
+    entrypoint: ["echo", "Adminer is disabled in production."]
